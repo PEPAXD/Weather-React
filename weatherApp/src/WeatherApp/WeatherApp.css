@@ -43,7 +43,7 @@ body.night-rainy {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
     gap: 1rem;
 }
 
@@ -63,4 +63,35 @@ body.night-rainy {
     font-size: 1.5rem;
     font-weight: 300;
     padding-left: 1rem;
+}
+
+/* WeatherData */
+.weather{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-temp{
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.dataContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.humidity{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.2em;
 }
