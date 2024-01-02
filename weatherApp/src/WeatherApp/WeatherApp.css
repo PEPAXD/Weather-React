@@ -35,7 +35,7 @@ body.night-rainy {
   height: 35rem;
   margin: auto;
   border-radius: 2rem;
-  background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%);
+  background-image: linear-gradient(135deg, #130754, #3b2f80);
 }
 
 /* Top-Bar */
@@ -43,7 +43,7 @@ body.night-rainy {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 2rem 2rem 0 2rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
     gap: 1rem;
 }
 
@@ -74,17 +74,28 @@ body.night-rainy {
 }
 
 .weather-temp{
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: 300;
     color: #fff;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .dataContainer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+/** TopBar-width90% */
+.dataContainer::before {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%; 
+  top: 0;
+  border-top: 1px solid #fff;
 }
 
 .humidity{
@@ -93,5 +104,6 @@ body.night-rainy {
     justify-content: center;
     align-items: center;
 
+    margin-top: 1rem;
     font-size: 1.2em;
 }
