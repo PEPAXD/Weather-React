@@ -27,8 +27,6 @@ body.night-rainy {
   background-color: #22313f;
 }
 
-
-
 /* WeatherCard */
 .container {
   width: 25rem;
@@ -39,51 +37,64 @@ body.night-rainy {
 }
 
 /* Top-Bar */
-.top-bar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1.5rem 1.5rem 0 1.5rem;
-    gap: 1rem;
-}
-
-.top-bar input{
-    border: none;
-    outline: none;
-    background: none;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 300;
-    border-bottom: 2px solid #fff;
-    width: 80%;
-}
-
-.top-bar input::placeholder{
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 300;
-    padding-left: 1rem;
-}
-
-/* WeatherData */
-.weather{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.weather-temp{
-    font-size: 1.8em;
-    font-weight: 300;
-    color: #fff;
-    margin-bottom: 1.5rem;
-}
-
-.dataContainer{
+.top-bar {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  gap: 1rem;
+}
+
+.top-bar input {
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 300;
+  border-bottom: 2px solid #fff;
+  width: 80%;
+}
+
+.top-bar input::placeholder {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding-left: 1rem;
+}
+
+/* button search */
+.search-icon{
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.w-6.h-6:hover {
+  filter: drop-shadow(0 0 2px rgb(255, 255, 255));
+  opacity: 0.8;
+}
+
+.w-6.h-6:active {
+  transform: scale(0.8);
+}
+
+/* WeatherData */
+.weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-temp {
+  font-size: 1.8em;
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.dataContainer {
   width: 100%;
   position: relative;
 }
@@ -93,17 +104,16 @@ body.night-rainy {
   content: "";
   position: absolute;
   left: 5%;
-  right: 5%; 
+  right: 5%;
   top: 0;
   border-top: 1px solid #fff;
 }
 
-.humidity{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.dataTypes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
-    margin-top: 1rem;
-    font-size: 1.2em;
+  margin-top: 1rem;
+  font-size: 1.2em;
 }
