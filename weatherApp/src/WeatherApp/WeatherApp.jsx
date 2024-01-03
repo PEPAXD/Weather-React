@@ -22,28 +22,51 @@ export const WeatherApp = () => {
   const search = async (cityInput) => {
     let elemente = cityInput;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${elemente}&appid=${api_Key}&units=metric`;
-    
+
     let response = await fetch(url);
     let data = await response.json();
 
-    //* TempData 
+    //* TempData
     const temperature = document.querySelector("#temperature");
     temperature.innerHTML = `${Math.round(data.main.temp)}°C`;
-    console.log(data.main.temp);
 
     //* CityName
     const cityName = document.querySelector(".weather-temp p");
     cityName.innerHTML = `${data.name}`;
-    console.log(data.name);
 
     //* humidity
-    const humidity = document.querySelector(".humidity p");
-    //humidity.innerHTML = `${data.main.humidity}%`;
+    const humidity = document.querySelector(".humidity h2");
+    humidity.innerHTML = `${data.main.humidity}%`;
 
     //* pressure
-    const presure = document.querySelector(".winter p")
-    //presure.innerHTML = `${data.main.pressure}hPa`;
+    const presure = document.querySelector(".winter h2");
+    presure.innerHTML = `${Math.round(data.wind.speed * 3.6)} km/h`;
+  };
 
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  };
+
+  const showPosition = async (position) => {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+    );
+    const data = await response.json();
+
+    const locality =
+      data.address.city ||
+      data.address.town ||
+      data.address.village ||
+      "Unknown location";
+
+    search(locality);
   };
 
   return (
@@ -91,15 +114,20 @@ export const WeatherApp = () => {
         </div>
 
         <div className="weather-temp">
-          <h1 id="temperature">°C</h1>
-          <p>CityName</p>
+          <h1 id="temperature"></h1>
+          <p></p>
+
+          <div className="geoLocation">
+            <button onClick={getLocation}>Get Location</button>
+          </div>
+
         </div>
       </div>
 
       <div className="dataContainer">
         <div className="dataTypes">
-          <Data className={"humidity"} data={78} />
-          <Data className={"winter"} data={78} />
+          <Data className={"humidity"} />
+          <Data className={"winter"} />
           <Data className={"fire"} data={78} />
         </div>
       </div>

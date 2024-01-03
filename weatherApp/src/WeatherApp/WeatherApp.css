@@ -91,6 +91,12 @@ body.night-rainy {
 }
 
 .weather-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
   font-size: 1.8em;
   font-weight: 300;
   color: #fff;
