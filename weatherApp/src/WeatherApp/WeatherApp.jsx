@@ -21,13 +21,44 @@ export const WeatherApp = () => {
 
   const search = async (cityInput) => {
     let elemente = cityInput;
-    console.log(elemente);
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${elemente}&appid=${api_Key}&units=metric`;
+    
+    let response = await fetch(url);
+    let data = await response.json();
+
+    //* TempData 
+    const temperature = document.querySelector("#temperature");
+    temperature.innerHTML = `${Math.round(data.main.temp)}°C`;
+    console.log(data.main.temp);
+
+    //* CityName
+    const cityName = document.querySelector(".weather-temp p");
+    cityName.innerHTML = `${data.name}`;
+    console.log(data.name);
+
+    //* humidity
+    const humidity = document.querySelector(".humidity p");
+    //humidity.innerHTML = `${data.main.humidity}%`;
+
+    //* pressure
+    const presure = document.querySelector(".winter p")
+    //presure.innerHTML = `${data.main.pressure}hPa`;
+
   };
 
   return (
     <div className="container">
       <div className="top-bar">
-        <input type="text" className="cityInput" placeholder="Search" />
+        <input
+          className="cityInput"
+          type="text"
+          placeholder="Search for a city..."
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              search(event.target.value);
+            }
+          }}
+        />
 
         <button
           className="search-icon"
@@ -52,7 +83,6 @@ export const WeatherApp = () => {
             />
           </svg>
         </button>
-
       </div>
 
       <div className="weather">

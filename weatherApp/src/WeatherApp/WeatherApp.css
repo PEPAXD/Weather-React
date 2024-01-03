@@ -60,6 +60,9 @@ body.night-rainy {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 300;
+}
+
+.cityInput {
   padding-left: 1rem;
 }
 
