@@ -1,11 +1,10 @@
-import './App.css'
-import { WeatherApp } from './WeatherApp/WeatherApp'
+import { Background } from './WeatherApp/background.jsx';
 
 function App() {
   return (
     <>
       <div className="App">
-        <WeatherApp />
+        <Background />
       </div>
     </>
   )
