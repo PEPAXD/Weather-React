@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div className="App">
-      <Background bgImg={homeImg} />
+      <Background bgImg={homeImg}  rotateDeg={720}/>
       </div>
     </>
   )

@@ -1,20 +1,21 @@
 import "./Background.css";
 import React, { useState } from "react";
 
-export const Background = ({ bgImg }) => {
+export const Background = ({ bgImg, rotateDeg }) => {
   /* circlesDiv */
   const circles = ["A", "B", "C"];
 
   /* Rotate */
-  const [rotate, setRotate] = useState(false);
+  const [rotate, setRotate] = useState(0);
+  
   const handleRotate = () => {
-    console.log('rotate');
-    setRotate(!rotate);
+    setRotate(rotateDeg);
   };
 
   /* BackgroundImg */
   const bgStyle = {
     backgroundImage: `url(${bgImg})`,
+    transform: `rotate(${rotate}deg)`
   };
 
   return (
@@ -27,9 +28,7 @@ export const Background = ({ bgImg }) => {
         <div className="circleDarktransp"></div>
       </div>
 
-      <button className="buttonRotate" onClick={handleRotate}>
-        Rotate Test
-      </button>
+      <button className="buttonRotate" onClick={handleRotate}>Rotate Test</button>
     </div>
   );
 };
