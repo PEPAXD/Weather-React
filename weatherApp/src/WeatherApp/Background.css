@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255);
-  background-color: #222;
+  background-color: #333;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,7 +24,6 @@
   border: none;
   text-decoration: none;
   overflow: hidden;
-
 }
 
 .background{
@@ -32,14 +31,16 @@
   height: 100vh;
 }
 
-/*! EXPERIMENTAL ZONE*/
-.circleContent {
+.circleContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 100%;
   height: 100%;
+
+  /*? format Background_img 1:1*/
+  transform: scale(2); 
 }
 
 .circle.A, .circle.B, .circle.C {
@@ -47,20 +48,18 @@
   height: 100%;
 
   position: absolute;
-  background-image: url('../assets/Backgrounds/home.png'); /* Reemplaza con la ruta a tu imagen */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
 
 .circle.A {
-  clip-path: circle(35% at 50% 50%);
+  clip-path: circle(15% at 50% 50%);
   z-index: 3;
 }
 
 .circle.B {
-  clip-path: circle(55% at 50% 50%);
+  clip-path: circle(25% at 50% 50%);
   z-index: 2; ;
 }
 
@@ -73,6 +72,47 @@
   z-index: 2;
   width: 100%;
   height: 100%;
-  clip-path: circle(55% at 50% 50%);
+  clip-path: circle(25% at 50% 50%);
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*! EXPERIMENTAL ZONE*/
+
+/*TODO: ROTATE TEST BUTTON*/
+.buttonRotate {
+  position: absolute;
+  bottom: 20px; /* Posiciona el botón en el margen inferior */
+  right: 20px; /* Posiciona el botón en el margen derecho */
+  z-index: 4;
+  width: 50px; /* Ajusta el ancho del botón */
+  height: 50px; /* Ajusta el alto del botón */
+  background-color: #FFF; /* Cambia el color de fondo del botón a rojo */
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  cursor: pointer;
+  border-radius: 50%; /* Hace que el botón sea redondo */
+}
+
+.circle.C.rotate {
+  animation: rotation 1.2s  cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.circle.B.rotate {
+  animation: rotation .9s  cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.circle.A.rotate {
+  animation: rotation .6s  cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
 }
