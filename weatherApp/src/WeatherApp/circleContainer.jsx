@@ -17,7 +17,9 @@ export const Background = ({ bgImg, rotateDeg, shouldRotate }) => {
           style={{
             backgroundImage: `url(${bgImg})`,
             transform: `rotate(${rotate}deg)`,
+            boxShadow: '0 0 100px 100px #F65E4D inset'         
           }}
+          
           className={`circle ${circle} ${rotate ? "rotate" : ""}`}
         ></div>
       ))}
