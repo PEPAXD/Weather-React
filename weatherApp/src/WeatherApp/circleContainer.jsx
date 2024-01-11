@@ -17,7 +17,6 @@ export const Background = ({ bgImg, rotateDeg, shouldRotate, opacity }) => {
           style={{
             backgroundImage: `url(${bgImg})`,
             transform: `rotate(${rotate}deg)`,
-            boxShadow: '0 0 100px 100px #000 inset',     
             opacity: opacity
           }}
 
