@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const Background = ({ bgImg, rotateDeg, shouldRotate }) => {
+export const Background = ({ bgImg, rotateDeg, shouldRotate, opacity }) => {
   
   const circles = ["A", "B", "C"];
   const [rotate, setRotate] = useState(0);
@@ -17,13 +17,13 @@ export const Background = ({ bgImg, rotateDeg, shouldRotate }) => {
           style={{
             backgroundImage: `url(${bgImg})`,
             transform: `rotate(${rotate}deg)`,
-            boxShadow: '0 0 100px 100px #F65E4D inset'         
+            boxShadow: '0 0 100px 100px #000 inset',     
+            opacity: opacity
           }}
-          
+
           className={`circle ${circle} ${rotate ? "rotate" : ""}`}
         ></div>
       ))}
-      <div className="circleDarktransp"></div>
     </div>
   );
 };

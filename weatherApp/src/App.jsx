@@ -8,8 +8,6 @@ import homeImg from "./assets/Backgrounds/home.png";
 import clearImg from "./assets/Backgrounds/clear.jpg";
 
 
-
-
 function App() {
 
   /*rotateButton*/
@@ -23,7 +21,12 @@ function App() {
     <>
       <div className="App">
         <div className="background">
-            <Background bgImg={homeImg}  rotateDeg={720} shouldRotate={rotate}/>
+        <div className="circleDarktransp"></div>
+            <Background bgImg={homeImg}  rotateDeg={720} shouldRotate={rotate} opacity={1}/>
+
+    
+
+
             <UI handleRotate={handleRotate} />
         </div>
       </div>
