@@ -76,8 +76,6 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/*! EXPERIMENTAL ZONE*/
-
 /*TODO: ROTATE TEST BUTTON*/
 .buttonRotate {
   position: absolute;
@@ -112,8 +110,4 @@
   from {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate();
-  }
 }
-
