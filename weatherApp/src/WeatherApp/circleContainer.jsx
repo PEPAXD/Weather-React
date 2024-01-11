@@ -8,6 +8,9 @@ export const Background = ({ bgImg, rotateDeg, shouldRotate, opacity }) => {
     if (shouldRotate) {
       setRotate(rotateDeg);
       setLocalOpacity(opacity ? 0 : 1);
+    } else {
+      setRotate(0);
+      setLocalOpacity(opacity);
     }
   }, [shouldRotate, rotateDeg, opacity]);
 
@@ -15,7 +18,7 @@ export const Background = ({ bgImg, rotateDeg, shouldRotate, opacity }) => {
     backgroundImage: `url(${bgImg})`,
     transform: `rotate(${rotate}deg)`,
     opacity: localOpacity,
-    transition: 'opacity 2s ease-out'
+    transition: 'opacity 1.5s ease-out'
   };
 
   return (

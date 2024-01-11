@@ -4,7 +4,7 @@ import { Background } from './WeatherApp/circleContainer.jsx';
 import { UI } from './WeatherApp/UI.jsx';
 
 
-import homeImg from "./assets/Backgrounds/home.png";
+import homeImg from "./assets/Backgrounds/home.jpg";
 import clearImg from "./assets/Backgrounds/clear.jpg";
 
 
