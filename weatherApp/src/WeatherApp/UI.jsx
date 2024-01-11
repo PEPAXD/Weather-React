@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const UI = ({ handleRotate }) => {
+  const [alignment, setAlignment] = useState("left");
+
+  const handleChange = (e) => {
+    if (e.target.value.length === 1) {
+      setAlignment("center");
+    } else if (e.target.value.length === 0) {
+      setAlignment("left");
+    }
+  };
+
   return (
     <>
       <div className="containerUI">
@@ -10,7 +20,13 @@ export const UI = ({ handleRotate }) => {
           <div className="search">
             <div className="search-box">
               <div className="search-field">
-                <input className="input" type="text" placeholder="Search..." />
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Search for a city, province or country..."
+                  style={{ textAlign: alignment }}
+                  onChange={handleChange}
+                />
               </div>
             </div>
           </div>
