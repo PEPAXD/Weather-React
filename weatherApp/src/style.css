@@ -85,6 +85,11 @@
 
 /*TODO: ROTATE TEST BUTTON*/
 .buttonRotate {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: absolute;
   bottom: 20px; /* Posiciona el botón en el margen inferior */
   right: 20px; /* Posiciona el botón en el margen derecho */
@@ -98,6 +103,10 @@
   font-size: 0.6em;
   cursor: pointer;
   border-radius: 50%; /* Hace que el botón sea redondo */
+}
+
+.buttonRotate svg{
+  
 }
 
 .circle.C.rotate {
@@ -133,13 +142,18 @@
 
 .tittle {
   position: absolute;
-  font-size: 2.5em;
+  font-size: 2.3em;
   font-weight: 300;
   color: #fff;
   margin-bottom: 1.5rem;
   text-align: center;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 2px 1px #333, 
-  -1px 3px 1px #333;
+
+  text-shadow: 
+  -1px 1px 1px rgba(0,0,0,.5),
+  1px -1px 1px rgba(0,0,0,.5), 
+  -1px 1px 1px rgba(0,0,0,.5), 
+  1px 1px 1px rgba(0,0,0,.5);
+    
 }
 
 .bar {
@@ -147,6 +161,7 @@
   width: 100%;
   height: 6px;
   background-color: #fff;
-  border: 1px solid #000;
-  box-shadow: 0 2px 1px #333;
+
+  box-shadow:
+    -1px 1px 1px rgba(0, 0, 0, 1);
 }
