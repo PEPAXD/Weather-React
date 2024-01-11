@@ -23,7 +23,7 @@ function App() {
         <div className="background">
         <div className="circleDarktransp"></div>
             <Background bgImg={homeImg}  rotateDeg={720} shouldRotate={rotate} opacity={1}/>
-            <Background bgImg={clearImg}  rotateDeg={-720} shouldRotate={rotate} opacity={0.5}/>
+            <Background bgImg={clearImg}  rotateDeg={-720} shouldRotate={rotate} opacity={0}/>
             <UI handleRotate={handleRotate} />
         </div>
       </div>
