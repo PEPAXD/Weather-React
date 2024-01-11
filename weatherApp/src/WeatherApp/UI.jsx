@@ -6,8 +6,14 @@ export const UI = ({ handleRotate }) => {
       <div className="containerUI">
         <div className="tittle">
           <h1>WEATHER APP</h1>
-          <div className="bar"></div>
-          <h2>SEARCH A COUNTRY</h2>
+
+          <div className="search">
+            <div className="search-box">
+              <div className="search-field">
+                <input className="input" type="text" placeholder="Search..." />
+              </div>
+            </div>
+          </div>
         </div>
 
         <button className="buttonRotate" onClick={handleRotate}>
