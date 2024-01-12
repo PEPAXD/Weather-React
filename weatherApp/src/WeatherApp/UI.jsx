@@ -23,7 +23,7 @@ export const UI = ({ handleRotate }) => {
                 <input
                   className="input"
                   type="text"
-                  placeholder="Search for a city, province or country..."
+                  placeholder="Search a location..."
                   style={{ textAlign: alignment }}
                   onChange={handleChange}
                 />
@@ -49,6 +49,26 @@ export const UI = ({ handleRotate }) => {
               </div>
             </div>
           </div>
+
+          <div className="or-LineBar">
+            <div className="line"></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="0.4em"
+              height="0.4em"
+              viewBox="0 0 24 24"
+            >
+              <path
+
+                stroke="currentColor"
+                stroke-width="0.1"
+                d="M12 22L1 3h22M12 18l7.53-13H4.47"
+              />
+            </svg>
+            <div className="line"></div>
+          </div>
+
+          <button className="geoLocationIP ">Where Am I?</button>
         </div>
 
         <button className="buttonRotate" onClick={handleRotate}>
