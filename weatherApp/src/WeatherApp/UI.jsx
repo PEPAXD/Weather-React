@@ -30,8 +30,8 @@ export const UI = ({ handleRotate }) => {
                 <div className="search-box-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="0.7em"
-                    height="0.7em"
+                    width="0.6em"
+                    height="0.6em"
                     viewBox="0 0 24 24"
                   >
                     <g
@@ -39,10 +39,10 @@ export const UI = ({ handleRotate }) => {
                       stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="1.4"
+                      strokeWidth="2"
                     >
-                      <path d="M20.972 11.291a9 9 0 1 0-8.322 9.686M3.6 9h16.8M3.6 15h8.9" />
-                      <path d="M11.5 3a17 17 0 0 0 0 18m1-18a16.986 16.986 0 0 1 2.578 9.018m6.043 8.103a3 3 0 1 0-4.242 0c.418.419 1.125 1.045 2.121 1.879c1.051-.89 1.759-1.516 2.121-1.879M19 18v.01" />
+                      <path d="M21 12a9 9 0 1 0-9 9M3.6 9h16.8M3.6 15h7.9" />
+                      <path d="M11.5 3a17 17 0 0 0 0 18m1-18a16.984 16.984 0 0 1 2.574 8.62M15 18a3 3 0 1 0 6 0a3 3 0 1 0-6 0m5.2 2.2L22 22" />
                     </g>
                   </svg>
                 </div>

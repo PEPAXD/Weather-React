@@ -205,7 +205,9 @@
   justify-content: center;
   align-items: center;
 
-  width: 10%;
+  height: 100%;
+  width: 3rem;
+
   border-left: 2px solid rgb(0, 0, 0, 0.2);
   color: #a9a9a9;
 
@@ -213,6 +215,8 @@
 }
 
 .search-box-icon:hover {
+
+
   background: rgb(150, 150, 150, 0.6);
   color: #fff;
 }
