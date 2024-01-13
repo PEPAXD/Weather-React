@@ -2,6 +2,7 @@
 :root {
   --white-color: #fff;
   --black-color: #000;
+  --lightBlack-color: #565656;
   --background-color: #999;
   --lightBackground-color: #c5c5c5;
   --success-color: #28a745;
@@ -248,30 +249,35 @@
 
 }
 
-/*!  IP-BUTTON*/
 .geoLocationIP {
 
   padding: 0.5rem 2rem;
   margin: 1rem;
 
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 5px;
   text-transform: uppercase;
   cursor: pointer;
   color: var(--black-color);
-  transition: all 1000ms;
+  transition: background-color 1000ms, color 1000ms, transform 1000ms, width 1000ms, height 1000ms, outline 1000ms;
 
   font-size: 0.3em;
 
   outline: 1px solid var(--black-color);
 
-  background: transparent;
+  background: var(--lightSuccess-color);
+  -webkit-box-shadow: 0px 1px 0px 1px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 1px 0px 1px rgba(0,0,0,1);
+  box-shadow: 0px 1px 0px 1px rgba(0,0,0,1);
+
 }
 
 .geoLocationIP:hover {
   color: var(--white-color);
   transform: scale(1.1);
   outline: 2px solid var(--lightSuccess-color); 
+  font-weight: bold;
+  
 }
 
 .geoLocationIP::before {
@@ -285,11 +291,14 @@
   transform: skewX(45deg);
   z-index: -1;
   transition: width 1000ms;
+  
 }
 
-button:hover::before {
+.geoLocationIP:hover::before {
   width: 250%;
 }
+
+
 
 /* Responsive Section */
 @media (max-width: 600px) {
