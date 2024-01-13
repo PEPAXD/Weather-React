@@ -207,6 +207,17 @@
   color: var(--background-color);
 }
 
+.search-box-Button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+
+  background: var(--white-color);
+
+}
+
 /*Searchbutton*/
 .search-box-icon {
   display: flex;
