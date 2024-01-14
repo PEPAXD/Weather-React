@@ -7,8 +7,8 @@
   --lightBackground-color: #c5c5c5;
   --success-color: #28a745;
   --lightSuccess-color: #5cce69;
+  --weatherStatus-color: #dc3545;
 }
-
 
 /* Default Global Options */
 :root {
@@ -25,8 +25,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 * {
   margin: 0;
@@ -138,7 +136,9 @@
   z-index: 4;
   width: 50px; /* Ajusta el ancho del botón */
   height: 50px; /* Ajusta el alto del botón */
-  background-color: var(--white-color); /* Cambia el color de fondo del botón a rojo */
+  background-color: var(
+    --white-color
+  ); /* Cambia el color de fondo del botón a rojo */
   color: var(--black-color);
   font-weight: bold;
   text-transform: uppercase;
@@ -148,7 +148,7 @@
 }
 
 /* SearchBox*/
-.tittle {
+.mainUI {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,7 +171,6 @@
 
   border: 1px solid rgb(0, 0, 0, 0.2);
 
-
   background: var(--white-color);
 }
 
@@ -186,7 +185,6 @@
 
   padding-left: 1rem;
   border: 1px solid var(--background-color);
-  
 }
 
 .input {
@@ -194,8 +192,6 @@
   height: 100%;
 
   padding-left: 1rem;
-
-
 
   font-size: 1rem;
   color: var(--background-color);
@@ -207,7 +203,7 @@
   color: var(--background-color);
 }
 
-.search-box-Button{
+.search-box-Button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,7 +211,6 @@
   height: 100%;
 
   background: var(--white-color);
-
 }
 
 /*Searchbutton*/
@@ -247,21 +242,17 @@
   margin-top: 2%;
 }
 
-.or-LineBar svg{
+.or-LineBar svg {
   margin: 0rem 0.5rem;
   color: var(--black-color);
-
 }
 
-
-.line{
+.line {
   flex-grow: 1;
   border-top: 1px solid var(--black-color);
-
 }
 
 .geoLocationIP {
-
   padding: 0.5rem 2rem;
   margin: 1rem;
 
@@ -270,25 +261,24 @@
   text-transform: uppercase;
   cursor: pointer;
   color: var(--black-color);
-  transition: background-color 1000ms, color 1000ms, transform 1000ms, width 1000ms, height 1000ms, outline 1000ms;
+  transition: background-color 1000ms, color 1000ms, transform 1000ms,
+    width 1000ms, height 1000ms, outline 1000ms;
 
   font-size: 0.3em;
 
   outline: 1px solid var(--black-color);
 
   background: var(--lightSuccess-color);
-  -webkit-box-shadow: 0px 1px 0px 1px rgba(0,0,0,1);
-  -moz-box-shadow: 0px 1px 0px 1px rgba(0,0,0,1);
-  box-shadow: 0px 1px 0px 1px rgba(0,0,0,1);
-
+  -webkit-box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 1);
+  box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 1);
 }
 
 .geoLocationIP:hover {
   color: var(--white-color);
   transform: scale(1.1);
-  outline: 2px solid var(--lightSuccess-color); 
+  outline: 2px solid var(--lightSuccess-color);
   font-weight: bold;
-  
 }
 
 .geoLocationIP::before {
@@ -302,18 +292,15 @@
   transform: skewX(45deg);
   z-index: -1;
   transition: width 1000ms;
-  
 }
 
 .geoLocationIP:hover::before {
   width: 250%;
 }
 
-
-
 /* Responsive Section */
 @media (max-width: 600px) {
-  .tittle{
+  .mainUI {
     font-size: 1.4em;
   }
 
@@ -322,7 +309,102 @@
     height: 2rem;
   }
 
-  .search-field{
+  .search-field {
     padding-left: 0rem;
   }
+}
+
+/*! Experimental Zone Section */
+
+.sliderContent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 3;
+}
+.cardContainer {
+  width: fit-content;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  
+  width: 15rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  background-color: var(--white-color);
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  cursor: pointer;
+}
+
+.city {
+  font-weight: 700;
+  font-size: 0.9em;
+  letter-spacing: 1.2px;
+  color: var(--black-color);
+}
+
+.weather {
+  font-weight: 500;
+  font-size: 0.7em;
+  letter-spacing: 1.2px;
+  color: var(--weatherStatus-color);
+}
+
+.temp {
+  font-size: 1.8em;
+  color: var(--black-color);
+}
+
+.minmaxContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.min,
+.max {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0px 20px;
+  gap: 4px;
+}
+
+.max {
+  align-items: flex-start;
+  border-left: 2px solid var(--lightBackground-color);
+}
+
+.maxHeading,
+.minHeading {
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--background-color);
+}
+
+.maxTemp,
+.minTemp {
+  font-size: 0.6em;
+  font-weight: 500;
+  color: rgb(197, 197, 197);
 }

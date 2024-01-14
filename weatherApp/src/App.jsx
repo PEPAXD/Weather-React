@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Background } from './WeatherApp/circleContainer.jsx';
 import { UI } from './WeatherApp/UI.jsx';
+import WeatherUI from './WeatherApp/weatherUI.jsx';
 
 
 import homeImg from "./assets/Backgrounds/home.jpg";
@@ -24,7 +25,14 @@ function App() {
         <div className="circleDarktransp"></div>
             <Background bgImg={homeImg}  rotateDeg={720} shouldRotate={rotate} opacity={1}/>
             <Background bgImg={clearImg}  rotateDeg={-720} shouldRotate={rotate} opacity={0}/>
+
+            {/* Temp Disable
             <UI handleRotate={handleRotate} />
+            */}
+
+            <WeatherUI />
+
+
         </div>
       </div>
     </>

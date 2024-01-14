@@ -14,7 +14,7 @@ export const UI = ({ handleRotate }) => {
   return (
     <>
       <div className="containerUI">
-        <div className="tittle">
+        <div className="mainUI">
           <h1>WEATHER APP</h1>
 
           <div className="search">
