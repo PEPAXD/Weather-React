@@ -19,21 +19,20 @@ const weatherUI = () => {
           <img src={icons.Clear} alt="weather icon" className="weatherIcon" />
 
           <div className="tempContainer">
-            <p className="temp">32°C</p>
+            <p className="temp">26°C</p>
 
             <div className="minMax">
               <div className="min">
                 <p className="minHeading">Min</p>
-                <p className="minTemp">30°</p>
+                <p className="minTemp">17</p>
               </div>
+
               <div className="max">
                 <p className="maxHeading">Max</p>
-                <p className="maxTemp">32°</p>
+                <p className="maxTemp">27</p>
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
     </div>
