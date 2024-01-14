@@ -1,0 +1,181 @@
+.containerUI {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+  
+  
+  
+  /* SearchBox*/
+  .mainUI {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    position: absolute;
+    font-size: 2.5em;
+    font-weight: 300;
+    color: var(--white-color);
+    text-align: center;
+  
+    text-shadow: -1px 1px 1px rgba(0, 0, 0, 1), 1px -1px 1px rgba(0, 0, 0, 1),
+      -1px 1px 1px rgba(0, 0, 0, 1), 1px 1px 1px rgba(0, 0, 0, 1);
+  }
+  
+  /* SearchBox*/
+  .search-box {
+    width: 30rem;
+    height: 2rem;
+  
+    border: 1px solid rgb(0, 0, 0, 0.2);
+  
+    background: var(--white-color);
+  }
+  
+  /*Section input*/
+  .search-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 100%;
+    height: 100%;
+  
+    padding-left: 1rem;
+    border: 1px solid var(--background-color);
+  }
+  
+  .input {
+    width: calc(100% - 3rem);
+    height: 100%;
+  
+    padding-left: 1rem;
+  
+    font-size: 1rem;
+    color: var(--background-color);
+    font-weight: bold;
+    background: transparent;
+  }
+  
+  .input::placeholder {
+    color: var(--background-color);
+  }
+  
+  .search-box-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    height: 100%;
+  
+    background: var(--white-color);
+  }
+  
+  /*Searchbutton*/
+  .search-box-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    height: 100%;
+    width: 3rem;
+    border-left: 2px solid var(--lightBackground-color);
+    color: var(--background-color);
+  
+    transition: all 0.25s ease;
+  }
+  
+  .search-box-icon:hover {
+    background: var(--lightSuccess-color);
+    color: var(--white-color);
+  }
+  
+  .or-LineBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    color: #fff;
+  
+    margin-top: 2%;
+  }
+  
+  .or-LineBar svg {
+    margin: 0rem 0.5rem;
+    color: var(--black-color);
+  }
+  
+  .line {
+    flex-grow: 1;
+    border-top: 1px solid var(--black-color);
+  }
+  
+  .geoLocationIP {
+    padding: 0.5rem 2rem;
+    margin: 1rem;
+  
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--black-color);
+    transition: background-color 1000ms, color 1000ms, transform 1000ms,
+      width 1000ms, height 1000ms, outline 1000ms;
+  
+    font-size: 0.3em;
+  
+    outline: 1px solid var(--black-color);
+  
+    background: var(--lightSuccess-color);
+    -webkit-box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 1);
+    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 1);
+  }
+  
+  .geoLocationIP:hover {
+    color: var(--white-color);
+    transform: scale(1.1);
+    outline: 2px solid var(--lightSuccess-color);
+    font-weight: bold;
+  }
+  
+  .geoLocationIP::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--success-color);
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
+  }
+  
+  .geoLocationIP:hover::before {
+    width: 250%;
+  }
+  
+  /* Responsive Section */
+  @media (max-width: 600px) {
+    .mainUI {
+      font-size: 1.4em;
+    }
+  
+    .search-box {
+      width: 20rem;
+      height: 2rem;
+    }
+  
+    .search-field {
+      padding-left: 0rem;
+    }
+  }
+  

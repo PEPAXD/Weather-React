@@ -1,4 +1,5 @@
 import React from "react";
+import './styles/weatherUI.css';
 
 import clear_icon from "../assets/Icons/clearDay.svg";
 

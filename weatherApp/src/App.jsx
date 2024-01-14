@@ -26,11 +26,11 @@ function App() {
             <Background bgImg={homeImg}  rotateDeg={720} shouldRotate={rotate} opacity={1}/>
             <Background bgImg={clearImg}  rotateDeg={-720} shouldRotate={rotate} opacity={0}/>
 
-            {/* Temp Disable
-            <UI handleRotate={handleRotate} />
-            */}
 
-            <WeatherUI />
+            <UI handleRotate={handleRotate} />
+
+
+
 
 
         </div>

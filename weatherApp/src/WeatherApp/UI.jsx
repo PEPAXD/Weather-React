@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './styles/UI.css';
 
 export const UI = ({ handleRotate }) => {
   /*Center.UserInputTextCity*/

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './styles/circleContainer.css';
 
 export const Background = ({ bgImg, rotateDeg, shouldRotate, opacity }) => {
   const [rotate, setRotate] = useState(0);
