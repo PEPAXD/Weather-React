@@ -22,7 +22,7 @@ export const UI = ({ handleRotate }) => {
 
   return (
     <>
-      <div style={{ opacity: opacity, transition: 'opacity 0.5s ease-in-out'  }} className="containerUI">
+      <div style={{ opacity: opacity, transition: 'opacity 0.5s ease-out'  }} className="containerUI">
         <div className="mainUI">
           <h1>WEATHER APP</h1>
 

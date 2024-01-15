@@ -25,7 +25,6 @@ function App() {
     <>
       <div className="App">
         <div className="background">
-
           <Background
             bgImg={homeImg}
             rotateDeg={720}

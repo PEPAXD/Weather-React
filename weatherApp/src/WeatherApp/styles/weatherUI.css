@@ -22,14 +22,14 @@
   .card {
     position: relative;
     
-    width: 16rem;
-    height: 22rem;
+    width: 25rem;
+    height: 35rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 20px 10px;
-    border-radius: 10px;
+    border-radius: 2rem;
     backdrop-filter: blur(30px);
     background-color: var(--white-color);
     border: 1px solid rgba(255, 255, 255, 0.089);
@@ -48,27 +48,27 @@
   }
 
   .weatherIcon{
-    width: 170px;
+    width: 250px;
     height: auto;
   }
   
   .city {
     font-weight: 700;
-    font-size: 0.9em;
+    font-size: 2em;
     letter-spacing: 1.2px;
     color: var(--black-color);
   }
   
   .weather {
     font-weight: 500;
-    font-size: 0.7em;
+    font-size: 1.5em;
     letter-spacing: 1.2px;
 
     color: var(--weatherStatus-color);
   }
   
   .temp {
-    font-size: 2.5em;
+    font-size: 4.5em;
 
     color: var(--black-color);
   }
@@ -103,7 +103,7 @@
     justify-content: center;
     flex-direction: column;
 
-    font-size: 1.2em;
+    font-size: 2em;
     padding: 0rem 0.5rem;
   }
 
@@ -122,7 +122,7 @@
   
   .maxTemp,
   .minTemp {
-    font-size: 0.6em;
+    font-size: 0.7em;
     font-weight: 500;
     color: var(--lightBackground-color);
    
