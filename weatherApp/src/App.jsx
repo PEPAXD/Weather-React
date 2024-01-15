@@ -33,10 +33,8 @@ function App() {
             opacity={0}
           />
 
-          {/** Temp Disabled
-            <UI handleRotate={handleRotate} />
-          */}
 
+          <UI handleRotate={handleRotate} />
           <WeatherUI />
 
           

@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import './styles/UI.css';
 
 export const UI = ({ handleRotate }) => {
+
+  /*Fade-Out MainUI*/
+  const [opacity, setOpacity] = useState(1);
+  const handleClick = () => {
+    setOpacity(prevOpacity => prevOpacity === 1 ? 0 : 1);
+    handleRotate();
+  };
+
   /*Center.UserInputTextCity*/
   const [alignment, setAlignment] = useState("left");
   const handleChange = (e) => {
@@ -14,7 +22,7 @@ export const UI = ({ handleRotate }) => {
 
   return (
     <>
-      <div className="containerUI">
+      <div style={{ opacity: opacity, transition: 'opacity 1s ease-in-out'  }} className="containerUI">
         <div className="mainUI">
           <h1>WEATHER APP</h1>
 
@@ -28,7 +36,7 @@ export const UI = ({ handleRotate }) => {
                   style={{ textAlign: alignment }}
                   onChange={handleChange}
                 />
-                <button className="search-box-Button" onClick={handleRotate}>
+                <button className="search-box-Button" onClick={handleClick}>
                   <div className="search-box-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +78,7 @@ export const UI = ({ handleRotate }) => {
             <div className="line"></div>
           </div >
 
-          <button className="geoLocationIP" onClick={handleRotate} >Where Am I?</button>
+          <button className="geoLocationIP" onClick={handleClick} >Where Am I?</button>
         </div>
       </div>
     </>

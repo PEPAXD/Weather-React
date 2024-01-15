@@ -9,7 +9,8 @@ const icons = {
 
 const weatherUI = () => {
   return (
-    <div className="sliderContent">
+    <div  className="sliderContent">
+
       <div className="cardContainer">
         <div className="card">
           <div className="textData">
@@ -24,17 +25,18 @@ const weatherUI = () => {
             <div className="minMax">
               <div className="min">
                 <p className="minHeading">Min</p>
-                <p className="minTemp">17</p>
+                <p className="minTemp">17°C</p>
               </div>
 
               <div className="max">
                 <p className="maxHeading">Max</p>
-                <p className="maxTemp">27</p>
+                <p className="maxTemp">27°C</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
