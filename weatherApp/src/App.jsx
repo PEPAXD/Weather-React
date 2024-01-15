@@ -8,18 +8,24 @@ import homeImg from "./assets/Backgrounds/home.jpg";
 import clearImg from "./assets/Backgrounds/clear.jpg";
 
 function App() {
+  
   /*rotateButton*/
+  const [showUI, setShowUI] = useState(true);
   const [rotate, setRotate] = useState(false);
+
   const handleRotate = () => {
     setRotate(!rotate);
-    console.log(rotate);
+
+    setTimeout(() => {
+      setShowUI(false);
+    }, 1000);
   };
 
   return (
     <>
       <div className="App">
         <div className="background">
-          <div className="circleDarktransp"></div>
+
           <Background
             bgImg={homeImg}
             rotateDeg={720}
@@ -33,11 +39,8 @@ function App() {
             opacity={0}
           />
 
-
-          <UI handleRotate={handleRotate} />
+          {showUI && <UI handleRotate={handleRotate} />}
           <WeatherUI />
-
-          
         </div>
       </div>
     </>
