@@ -29,7 +29,7 @@ export const WeatherApp = () => {
     let response = await fetch(url);
     let data = await response.json();
 
-    setShowData(true); // Mostrar los datos al final de la función search
+    setShowData(true);
 
     //* TempData
     const temperature = document.querySelector("#temperature");

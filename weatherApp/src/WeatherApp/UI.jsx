@@ -6,13 +6,18 @@ export const UI = ({ handleRotate }) => {
   /*Fade-Out MainUI*/
   const [opacity, setOpacity] = useState(1);
   const handleClick = () => {
+
     setOpacity(prevOpacity => prevOpacity === 1 ? 0 : 1);
-    handleRotate();
+    handleRotate(inputValue);
   };
 
-  /*Center.UserInputTextCity*/
+  /*InputTextCity*/
   const [alignment, setAlignment] = useState("left");
+  const [inputValue, setInputValue] = useState('');
   const handleChange = (e) => {
+
+    setInputValue(event.target.value);
+
     if (e.target.value.length === 1) {
       setAlignment("center");
     } else if (e.target.value.length === 0) {

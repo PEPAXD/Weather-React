@@ -9,11 +9,15 @@ import clearImg from "./assets/Backgrounds/clear.jpg";
 
 function App() {
   
-  /*rotateButton*/
+  /*activeButton*/
   const [showUI, setShowUI] = useState(true);
   const [rotate, setRotate] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  const handleRotate = () => {
+  const handleRotate = (inputValue) => {
+
+    const newValue = inputValue;
+    setInputValue(newValue);
     setRotate(!rotate);
 
     setTimeout(() => {
@@ -39,7 +43,7 @@ function App() {
           />
 
           {showUI && <UI handleRotate={handleRotate} />}
-          <WeatherUI rotate={rotate} />
+          <WeatherUI rotate={rotate} inputValue={inputValue} />
         </div>
       </div>
     </>
