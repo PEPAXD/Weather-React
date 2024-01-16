@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "./styles/weatherUI.css";
 
 import clear_icon from "../assets/Icons/clearDay.svg";
@@ -7,9 +7,17 @@ const icons = {
   Clear: clear_icon,
 };
 
-const weatherUI = () => {
+const weatherUI = ({ rotate }) => {
+
+  /*Fade in animation*/
+  const [opacity, setOpacity] = useState(0);
+  useEffect(() => {
+    setOpacity(rotate ? 1 : 0);
+  }, [rotate]);
+
+
   return (
-    <div  className="sliderContent">
+    <div style={{ opacity: opacity, transition: 'opacity 1s ease-in' }} className="sliderContent">
 
       <div className="cardContainer">
         <div className="card">

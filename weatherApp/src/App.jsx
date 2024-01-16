@@ -18,7 +18,7 @@ function App() {
 
     setTimeout(() => {
       setShowUI(false);
-    }, 1000);
+    }, 500);
   };
 
   return (
@@ -39,7 +39,7 @@ function App() {
           />
 
           {showUI && <UI handleRotate={handleRotate} />}
-          <WeatherUI />
+          <WeatherUI rotate={rotate} />
         </div>
       </div>
     </>
