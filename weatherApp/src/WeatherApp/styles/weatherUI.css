@@ -56,6 +56,22 @@
 /* Input container */
 .input-container {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 85%;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid var(--lightBlack-color);
+}
+
+.input-container svg{
+  color: var(--lightBlack-color);
+  transition: color 0.3s ease;
+}
+
+.input-container svg:hover{
+  color: #007bff;
 }
 
 /* Input field */
@@ -65,15 +81,11 @@
   font-size: 1.8em;
   margin-top: 1rem;
 
-  border-bottom: 2px solid var(--lightBlack-color);
   background: transparent;
   color: var(--lightBlack-color);
-  text-align: center;
+  padding-left: 1rem;
 }
 
-.input-field::placeholder {
-  text-align: center;  
-}
 
 /* Input label */
 .input-label {
@@ -99,10 +111,10 @@
 .input-field:focus + .input-label {
 
   position: absolute;
-  top: -1rem;
+  top: -1.2rem;
   font-size: 12px;
   color: #007bff;
-  padding-left: 5%;
+  margin-left: 1rem;
   padding: 1rem;
 }
 
