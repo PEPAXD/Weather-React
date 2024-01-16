@@ -59,7 +59,7 @@
     padding-left: 1rem;
   
     font-size: 1rem;
-    color: var(--background-color);
+    color: var(--lightBlack-color);
     font-weight: bold;
     background: transparent;
   }
@@ -78,7 +78,6 @@
     background: var(--white-color);
   }
   
-  /*Searchbutton*/
   .search-box-icon {
     display: flex;
     justify-content: center;

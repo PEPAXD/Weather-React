@@ -47,23 +47,30 @@ const weatherUI = ({ rotate, inputValue }) => {
       <div className="cardContainer">
         <div className="card">
           <div className="textData">
-            <input
-              className="cityInput"
-              type="text"
-              placeholder={inputValue}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  search(event.target.value);
-                }
-              }}
-            />
-            
-            <p className="weather">weather DAta </p>
+            <div className="input-container">
+              <input
+                id="input-field"
+                className="input-field"
+                type="text"
+                placeholder={inputValue}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    search(event.target.value);
+                  }
+                }}
+              />
+              <label htmlFor="input-field" className="input-label">
+                Search a location...
+              </label>
+              <span className="input-highlight"></span>
+            </div>
+
+            <p className="weather">Nublado</p>
           </div>
           <img src={icons.Clear} alt="weather icon" className="weatherIcon" />
 
           <div className="tempContainer">
-            <p className="temp">26°C</p>
+            <p className="temp">22°C</p>
 
             <div className="minMax">
               <div className="min">
