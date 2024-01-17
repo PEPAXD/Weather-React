@@ -8,18 +8,19 @@ const icons = {
 };
 
 const weatherUI = ({ rotate, inputValue }) => {
-  
-  /*Cityvalue*/
+  /*App-Cityvalue*/
   const [storedValue, setStoredValue] = useState("");
   useEffect(() => {
     setStoredValue(inputValue);
   }, [inputValue]);
 
+  /*inputCityvalue*/
   const handleInputChange = (event) => {
     setStoredValue(event.target.value);
   };
 
-  const printInputValue = () => {
+  /*Updatedata*/
+  const newCityName = () => {
     search();
   };
 
@@ -30,23 +31,37 @@ const weatherUI = ({ rotate, inputValue }) => {
   }, [rotate]);
 
   /*OpenWeatherMap API*/
-  const [showData, setShowData] = useState(false);
-  const [cityName, setCityName] = useState('');
-  let api_Key = "d346f2daac5cb21f0aa55da07724ace3";
+  const api_Key = "d346f2daac5cb21f0aa55da07724ace3";
 
-  const search = async () => {
-    const cityInput = storedValue;
+const search = async () => {
+  try {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${storedValue}&appid=${api_Key}&units=metric`;
+    const response = await fetch(url);
 
-    let elemente = cityInput;
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${elemente}&appid=${api_Key}&units=metric`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setShowData(true);
+    if (!response.ok) {
+      throw new Error("No data found");
+    }
 
-    //* CityName
-    setCityName(data.name);
-    console.log(data.name);
-  };
+    const data = await response.json();
+    const { name, weather, main } = data;
+
+    console.log("cityName: ", name);
+    console.log("weatherDescription: ", weather[0].description);
+    console.log("temperature: ", main.temp);
+    console.log("minTemp: ", main.temp_min);
+    console.log("maxTemp: ", main.temp_max);
+    console.log("humidity: ", main.humidity);
+    console.log("pressure: ", main.pressure);
+
+    document.getElementById("input-field").value = name;
+    setStoredValue(name);
+
+  } catch (error) {
+    console.log(error.message);
+    setStoredValue("Invalid Input - Try Again");
+    document.getElementById("input-field").value = 'NO DATA FOUND - TRY AGAIN';
+  }
+};
 
   return (
     <div
@@ -61,18 +76,22 @@ const weatherUI = ({ rotate, inputValue }) => {
                 id="input-field"
                 className="input-field"
                 type="text"
-                placeholder={inputValue}
+                placeholder={storedValue}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
                     search(event.target.value);
                   }
                 }}
                 onChange={handleInputChange}
+                onFocus={(event) => {
+                  event.target.value = '';
+                  event.target.placeholder = '';
+                }}
               />
               <label htmlFor="input-field" className="input-label">
                 Search a location...
               </label>
-              <button onClick={printInputValue}>
+              <button onClick={newCityName}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="2em"
