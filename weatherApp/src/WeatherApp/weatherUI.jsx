@@ -20,7 +20,7 @@ const weatherUI = ({ rotate, inputValue }) => {
   };
 
   const printInputValue = () => {
-    console.log(storedValue);
+    search();
   };
 
   /*Fade in animation*/
@@ -30,28 +30,22 @@ const weatherUI = ({ rotate, inputValue }) => {
   }, [rotate]);
 
   /*OpenWeatherMap API*/
-  const search = async (cityInput) => {
+  const [showData, setShowData] = useState(false);
+  const [cityName, setCityName] = useState('');
+  let api_Key = "d346f2daac5cb21f0aa55da07724ace3";
+
+  const search = async () => {
+    const cityInput = storedValue;
+
     let elemente = cityInput;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${elemente}&appid=${api_Key}&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
     setShowData(true);
 
-    //* TempData
-    const temperature = document.querySelector("#temperature");
-    temperature.innerHTML = `${Math.round(data.main.temp)}°C`;
-
     //* CityName
-    const cityName = document.querySelector(".weather-temp p");
-    cityName.innerHTML = `${data.name}`;
-
-    //* humidity
-    const humidity = document.querySelector(".humidity h2");
-    humidity.innerHTML = `${data.main.humidity}%`;
-
-    //* pressure
-    const presure = document.querySelector(".winter h2");
-    presure.innerHTML = `${Math.round(data.wind.speed * 3.6)} km/h`;
+    setCityName(data.name);
+    console.log(data.name);
   };
 
   return (
