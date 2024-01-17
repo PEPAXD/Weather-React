@@ -8,7 +8,9 @@
   --success-color: #28a745;
   --lightSuccess-color: #5cce69;
   --weatherStatus-color: #dc3545;
+  --dodgerBlue-color: #007bff;
 }
+  
 
 /* Default Global Options */
 :root {

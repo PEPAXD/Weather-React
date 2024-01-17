@@ -8,6 +8,21 @@ const icons = {
 };
 
 const weatherUI = ({ rotate, inputValue }) => {
+  
+  /*Cityvalue*/
+  const [storedValue, setStoredValue] = useState("");
+  useEffect(() => {
+    setStoredValue(inputValue);
+  }, [inputValue]);
+
+  const handleInputChange = (event) => {
+    setStoredValue(event.target.value);
+  };
+
+  const printInputValue = () => {
+    console.log(storedValue);
+  };
+
   /*Fade in animation*/
   const [opacity, setOpacity] = useState(0);
   useEffect(() => {
@@ -48,7 +63,6 @@ const weatherUI = ({ rotate, inputValue }) => {
         <div className="card">
           <div className="textData">
             <div className="input-container">
-            
               <input
                 id="input-field"
                 className="input-field"
@@ -59,29 +73,30 @@ const weatherUI = ({ rotate, inputValue }) => {
                     search(event.target.value);
                   }
                 }}
+                onChange={handleInputChange}
               />
               <label htmlFor="input-field" className="input-label">
                 Search a location...
               </label>
-              <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="2em"
-                      height="2em"
-                      viewBox="0 0 24 24"
-                    >
-                      <g
-                        fill="none"
-                        stroke="currentcolor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      >
-                        <path d="M21 12a9 9 0 1 0-9 9M3.6 9h16.8M3.6 15h7.9" />
-                        <path d="M11.5 3a17 17 0 0 0 0 18m1-18a16.984 16.984 0 0 1 2.574 8.62M15 18a3 3 0 1 0 6 0a3 3 0 1 0-6 0m5.2 2.2L22 22" />
-                      </g>
-                    </svg>
-
-              <span className="input-highlight"></span>
+              <button onClick={printInputValue}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2em"
+                  height="2em"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentcolor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                  >
+                    <path d="M21 12a9 9 0 1 0-9 9M3.6 9h16.8M3.6 15h7.9" />
+                    <path d="M11.5 3a17 17 0 0 0 0 18m1-18a16.984 16.984 0 0 1 2.574 8.62M15 18a3 3 0 1 0 6 0a3 3 0 1 0-6 0m5.2 2.2L22 22" />
+                  </g>
+                </svg>
+              </button>
             </div>
 
             <p className="weather">Nublado</p>

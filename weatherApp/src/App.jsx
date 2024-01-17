@@ -12,12 +12,11 @@ function App() {
   /*activeButton*/
   const [showUI, setShowUI] = useState(true);
   const [rotate, setRotate] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [CityName, setCityName] = useState("");
 
   const handleRotate = (inputValue) => {
 
-    const newValue = inputValue;
-    setInputValue(newValue);
+    setCityName(inputValue);
     setRotate(!rotate);
 
     setTimeout(() => {
@@ -43,7 +42,7 @@ function App() {
           />
 
           {showUI && <UI handleRotate={handleRotate} />}
-          <WeatherUI rotate={rotate} inputValue={inputValue} />
+          <WeatherUI rotate={rotate} inputValue={CityName} />
         </div>
       </div>
     </>

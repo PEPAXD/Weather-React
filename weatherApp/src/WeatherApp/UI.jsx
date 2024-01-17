@@ -9,6 +9,7 @@ export const UI = ({ handleRotate }) => {
 
     setOpacity(prevOpacity => prevOpacity === 1 ? 0 : 1);
     handleRotate(inputValue);
+
   };
 
   /*InputTextCity*/
