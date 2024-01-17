@@ -33,7 +33,6 @@
   border-radius: 2rem;
   backdrop-filter: blur(30px);
   background-color: var(--white-color);
-  border: 1px solid rgba(255, 255, 255, 0.089);
 
   cursor: default;
 
@@ -63,7 +62,13 @@
   width: 85%;
   padding-bottom: 0.2rem;
   border-bottom: 2px solid var(--lightBlack-color);
+  transition: all 0.5s ease;
 }
+
+.input-container:hover{
+  border-bottom: 2px solid #007bff;
+}
+
 
 .input-container svg{
   color: var(--lightBlack-color);
@@ -72,6 +77,11 @@
 
 .input-container svg:hover{
   color: #007bff;
+}
+
+.input-container svg:active {
+  transform: scale(0.9);
+  opacity: 0.5;
 }
 
 /* Input field */
@@ -97,19 +107,8 @@
   transition: all 0.3s ease;
 }
 
-.input-highlight {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background-color: #007bff;
-  transition: all 0.3s ease;
-}
-
-
+.input-field:hover + .input-label,
 .input-field:focus + .input-label {
-
   position: absolute;
   top: -1.2rem;
   font-size: 12px;
@@ -118,7 +117,9 @@
   padding: 1rem;
 }
 
-.input-field:focus + .input-label + .input-highlight {
+
+
+.input-field:focus + .input-label {
   width: 100%;
 }
 
