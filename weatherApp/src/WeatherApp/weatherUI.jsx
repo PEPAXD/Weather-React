@@ -8,10 +8,10 @@ const icons = {
 };
 
 const weatherUI = ({ rotate, inputValue }) => {
-  /*App-Cityvalue*/
-  const [storedValue, setStoredValue] = useState("");
+
   useEffect(() => {
     setStoredValue(inputValue);
+    search();
   }, [inputValue]);
 
   /*inputCityvalue*/
@@ -30,9 +30,15 @@ const weatherUI = ({ rotate, inputValue }) => {
     setOpacity(rotate ? 1 : 0);
   }, [rotate]);
 
+const [storedValue, setStoredValue] = useState(inputValue);
+const [weatherDescription, setWeatherDescription] = useState('');
+const [tempData, setTempData] = useState('_____');
+const [minTemp, setMinTemp] = useState('_____');
+const [maxTemp, setMaxTemp] = useState('_____');
+
+
   /*OpenWeatherMap API*/
   const api_Key = "d346f2daac5cb21f0aa55da07724ace3";
-
 const search = async () => {
   try {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${storedValue}&appid=${api_Key}&units=metric`;
@@ -45,13 +51,15 @@ const search = async () => {
     const data = await response.json();
     const { name, weather, main } = data;
 
-    console.log("cityName: ", name);
-    console.log("weatherDescription: ", weather[0].description);
-    console.log("temperature: ", main.temp);
-    console.log("minTemp: ", main.temp_min);
-    console.log("maxTemp: ", main.temp_max);
+    setWeatherDescription(weather[0].description);
+    setTempData(Math.round(main.temp) + '°C');
+    setMinTemp(Math.round(main.temp_min) + '°C');
+    setMaxTemp(Math.round(main.temp_max) + '°C');
+
     console.log("humidity: ", main.humidity);
     console.log("pressure: ", main.pressure);
+
+    console.log("Data: ", data);
 
     document.getElementById("input-field").value = name;
     setStoredValue(name);
@@ -112,22 +120,22 @@ const search = async () => {
               </button>
             </div>
 
-            <p className="weather">Nublado</p>
+            <p className="weather">{weatherDescription}</p>
           </div>
           <img src={icons.Clear} alt="weather icon" className="weatherIcon" />
 
           <div className="tempContainer">
-            <p className="temp">22°C</p>
+            <p className="temp">{tempData}</p>
 
             <div className="minMax">
               <div className="min">
                 <p className="minHeading">Min</p>
-                <p className="minTemp">17°C</p>
+                <p className="minTemp">{minTemp}</p>
               </div>
 
               <div className="max">
                 <p className="maxHeading">Max</p>
-                <p className="maxTemp">27°C</p>
+                <p className="maxTemp">{maxTemp}</p>
               </div>
             </div>
           </div>

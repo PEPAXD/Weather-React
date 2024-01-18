@@ -46,32 +46,8 @@ function App() {
 
       //* Cityname
       const cityName = data.name;
-      console.log("cityName: ", cityName);
       setCityName(cityName);
 
-      //* weather description
-      const weatherDescription = data.weather[0].description;
-      console.log("weatherDescription: ", weatherDescription);
-
-      //* TempData
-      const temperature = data.main.temp;
-      console.log("temperature: ", temperature);
-
-      //* Min Temp
-      const minTemp = data.main.temp_min;
-      console.log("minTemp: ", minTemp);
-
-      //* Max Temp
-      const maxTemp = data.main.temp_max;
-      console.log("maxTemp: ", maxTemp);
-
-      //* humidity
-      const humidity = data.main.humidity;
-      console.log("humidity: ", humidity);
-
-      //* pressure
-      const pressure = data.main.pressure;
-      console.log("pressure: ", pressure);
     } catch (error) {
       console.log(error.message);
       setCityName("Invalid Input - Try Again");
@@ -96,7 +72,7 @@ function App() {
           />
 
           {showUI && <UI handleRotate={handleRotate} />}
-          <WeatherUI rotate={rotate} inputValue={CityName} />
+          <WeatherUI rotate={rotate} inputValue={CityName}/>
         </div>
       </div>
     </>
