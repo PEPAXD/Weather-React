@@ -3,10 +3,26 @@ import "./styles/weatherUI.css";
 
 import clear_icon from "../assets/Icons/clearDay.svg";
 import error404 from "../assets/Icons/error-404.svg";
+import fewClouds_icon from "../assets/Icons/few_Clouds.svg";
+import rain_icon from "../assets/Icons/Rain.svg";
+import thunderstorm_icon from "../assets/Icons/thunderstorm.svg";
+import snow_icon from "../assets/Icons/snow.svg";
+import scatteredClouds_icon from "../assets/Icons/scattered_clouds.svg";
+import brokenClouds_icon from "../assets/Icons/broken_clouds.svg";
+import showerRain_icon from "../assets/Icons/shower_rain.svg";
+import mist_icon from "../assets/Icons/mist.svg";
 
-const icons = {
-  Clear: clear_icon,
-  error: error404,
+const weatherIcons = {
+  "error 404": error404,
+  "clear sky": clear_icon,
+  "few clouds": fewClouds_icon,
+  "rain": rain_icon,
+  "thunderstorm": thunderstorm_icon,
+  "snow": snow_icon,
+  "scattered clouds": scatteredClouds_icon,
+  "broken clouds": brokenClouds_icon,
+  "shower rain" : showerRain_icon,
+  "mist": mist_icon,
 };
 
 const weatherUI = ({ rotate, inputValue }) => {
@@ -53,24 +69,19 @@ const weatherUI = ({ rotate, inputValue }) => {
       const data = await response.json();
       const { name, weather, main } = data;
 
-      setWeatherDescription(weather[0].description);
+      const weatherDescription = weather[0].description;
+      setWeatherDescription(weatherDescription);
+
       setTempData(Math.round(main.temp) + "°C");
       setMinTemp(Math.round(main.temp_min) + "°C");
       setMaxTemp(Math.round(main.temp_max) + "°C");
 
-      console.log("humidity: ", main.humidity);
-      console.log("pressure: ", main.pressure);
-
-      console.log("Data: ", data);
-
       document.getElementById("input-field").value = name;
       setStoredValue(name);
     } catch (error) {
-
       document.getElementById("input-field").value =
-      error.message + " - Try Again";
+        error.message + " - Try Again";
       setWeatherDescription("error 404");
-      setTempData("");
       setShowDiv(false);
     }
   };
@@ -126,13 +137,17 @@ const weatherUI = ({ rotate, inputValue }) => {
 
             <p className="weather">{weatherDescription}</p>
           </div>
-          <img src={icons.error} alt="weather icon" className="weatherIcon" />
+          <img
+            src={weatherIcons[weatherDescription]}
+            alt="weather icon"
+            className="weatherIcon"
+          />
 
-          <div className="tempContainer">
-            <p className="temp">{tempData}</p>
+          <>
+            {showDiv && (
+              <div className="tempContainer">
+                <p className="temp">{tempData}</p>
 
-            <>
-              {showDiv && (
                 <div id="minMax" className="minMax">
                   <div className="min">
                     <p className="minHeading">Min</p>
@@ -144,9 +159,9 @@ const weatherUI = ({ rotate, inputValue }) => {
                     <p className="maxTemp">{maxTemp}</p>
                   </div>
                 </div>
-              )}
-            </>
-          </div>
+              </div>
+            )}
+          </>
         </div>
       </div>
     </div>
