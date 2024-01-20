@@ -14,15 +14,13 @@ import mist_icon from "../assets/Icons/mist.svg";
 
 const weatherIcons = {
   "error 404": error404,
-  "clear sky": clear_icon,
-  "few clouds": fewClouds_icon,
-  "rain": rain_icon,
-  "thunderstorm": thunderstorm_icon,
-  "snow": snow_icon,
-  "scattered clouds": scatteredClouds_icon,
-  "broken clouds": brokenClouds_icon,
-  "shower rain" : showerRain_icon,
-  "mist": mist_icon,
+  "Clear": clear_icon,
+  "Rain": rain_icon,
+  "Thunderstorm": thunderstorm_icon,
+  "Snow": snow_icon,
+  "Clouds": fewClouds_icon,
+  "Drizzle" : showerRain_icon,
+  "Mist": mist_icon,
 };
 
 const weatherUI = ({ rotate, inputValue }) => {
@@ -49,6 +47,7 @@ const weatherUI = ({ rotate, inputValue }) => {
 
   const [showDiv, setShowDiv] = useState(true);
   const [storedValue, setStoredValue] = useState(inputValue);
+  const [weatherMain, setWeatherMain] = useState("");
   const [weatherDescription, setWeatherDescription] = useState("");
   const [tempData, setTempData] = useState("");
   const [minTemp, setMinTemp] = useState("");
@@ -69,6 +68,9 @@ const weatherUI = ({ rotate, inputValue }) => {
       const data = await response.json();
       const { name, weather, main } = data;
 
+      const weatherMain = weather[0].main;
+      setWeatherMain(weatherMain);
+
       const weatherDescription = weather[0].description;
       setWeatherDescription(weatherDescription);
 
@@ -78,11 +80,15 @@ const weatherUI = ({ rotate, inputValue }) => {
 
       document.getElementById("input-field").value = name;
       setStoredValue(name);
+
     } catch (error) {
       document.getElementById("input-field").value =
         error.message + " - Try Again";
       setWeatherDescription("error 404");
       setShowDiv(false);
+
+      const weatherMain = "error 404";
+      setWeatherMain(weatherMain);
     }
   };
 
@@ -138,7 +144,7 @@ const weatherUI = ({ rotate, inputValue }) => {
             <p className="weather">{weatherDescription}</p>
           </div>
           <img
-            src={weatherIcons[weatherDescription]}
+            src={weatherIcons[weatherMain]}
             alt="weather icon"
             className="weatherIcon"
           />
