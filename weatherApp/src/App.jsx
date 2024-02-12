@@ -10,7 +10,6 @@ function App() {
   /*activeButton*/
   const [showUI, setShowUI] = useState(true);
   const [rotate, setRotate] = useState(false);
-
   const handleRotate = (inputValue) => {
     if (inputValue === "") {
       setCityName("Invalid Input - Try Again");
@@ -24,6 +23,13 @@ function App() {
     setTimeout(() => {
       setShowUI(false);
     }, 500);
+  };
+
+  /*GetLocation*/
+  const [location, setLocation] = useState({});
+  const handleLocationChange = (newLocation) => {
+    setLocation(newLocation);
+    console.log(location);
   };
 
   /*App-Cityvalue*/
@@ -71,7 +77,7 @@ function App() {
             opacity={0}
           />
 
-          {showUI && <UI handleRotate={handleRotate} />}
+          {showUI && <UI handleRotate={handleRotate} onLocationChange={handleLocationChange} />}
           <WeatherUI rotate={rotate} inputValue={CityName}/>
         </div>
       </div>

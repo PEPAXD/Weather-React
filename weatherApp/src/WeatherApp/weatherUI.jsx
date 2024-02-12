@@ -7,8 +7,6 @@ import fewClouds_icon from "../assets/Icons/few_Clouds.svg";
 import rain_icon from "../assets/Icons/Rain.svg";
 import thunderstorm_icon from "../assets/Icons/thunderstorm.svg";
 import snow_icon from "../assets/Icons/snow.svg";
-import scatteredClouds_icon from "../assets/Icons/scattered_clouds.svg";
-import brokenClouds_icon from "../assets/Icons/broken_clouds.svg";
 import showerRain_icon from "../assets/Icons/shower_rain.svg";
 import mist_icon from "../assets/Icons/mist.svg";
 
@@ -37,6 +35,7 @@ const weatherUI = ({ rotate, inputValue }) => {
   /*Updatedata*/
   const newCityName = () => {
     search();
+    
   };
 
   /*Fade in animation*/
@@ -100,6 +99,7 @@ const weatherUI = ({ rotate, inputValue }) => {
       <div className="cardContainer">
         <div className="card">
           <div className="textData">
+            
             <div className="input-container">
               <input
                 id="input-field"
@@ -120,7 +120,7 @@ const weatherUI = ({ rotate, inputValue }) => {
               <label htmlFor="input-field" className="input-label">
                 Search a location...
               </label>
-              <button onClick={newCityName}>
+              <button onClick={newCityName} type="submit">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="2em"

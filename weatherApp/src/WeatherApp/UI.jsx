@@ -9,7 +9,14 @@ export const UI = ({ handleRotate }) => {
 
     setOpacity(prevOpacity => prevOpacity === 1 ? 0 : 1);
     handleRotate(inputValue);
+  };
 
+  const showPosition = (position) => {
+    const location = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    };
+    onLocationChange(location);
   };
 
   /*InputTextCity*/
@@ -83,8 +90,15 @@ export const UI = ({ handleRotate }) => {
             </svg>
             <div className="line"></div>
           </div >
+     
+          {
+            /*
+            Disabling IpLocation
+            <button className="geoLocationIP" onClick={handleClick} >Where Am I?</button>
+            */
+          
+          }
 
-          <button className="geoLocationIP" onClick={handleClick} >Where Am I?</button>
         </div>
       </div>
     </>
